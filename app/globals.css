@@ -1,0 +1,659 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 270 100% 65%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.5rem;
+
+    --background-900: 240 10% 3.9%;
+    --background-850: 240 10% 8%;
+    --background-800: 240 10% 5%;
+    --background-700: 240 10% 7%;
+
+    /* Everchess design tokens */
+    --ec-bg: #0b0b0e; /* background */
+    --ec-surface: #141414; /* cards, panels */
+    --ec-red: #dc2626; /* primary action */
+    --ec-blue: #00b6ff; /* focus & progress */
+    --ec-blue-40: rgba(0, 182, 255, 0.4); /* focus & progress with opacity */
+    --ec-yellow: #ffd432; /* decorative accents */
+    --ec-text: #ffffff; /* primary text */
+    --ec-text-sub: #b3b3b3; /* secondary text */
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 100% 65%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --background-900: 240 10% 3.9%;
+    --background-850: 240 10% 8%;
+    --background-800: 240 10% 5%;
+    --background-700: 240 10% 7%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-faster {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Queue timer animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.queue-timer-header {
+  transition: all 0.2s ease;
+}
+
+.queue-timer-header:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 182, 255, 0.5);
+}
+
+/* Animation for the full queue UI */
+.animate-in {
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.zoom-in {
+  animation-name: zoomIn;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 5s linear infinite;
+  }
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+  .animate-spin-faster {
+    animation: spin-faster 6s linear infinite;
+  }
+  .font-heading {
+    font-family: var(--font-sora);
+  }
+  .font-body {
+    font-family: var(--font-inter);
+  }
+  .hover-cyan {
+    @apply transition-colors duration-200;
+  }
+  .hover-cyan:hover {
+    @apply text-everchess-cyan;
+  }
+
+  .everchess-card-gradient {
+    background: linear-gradient(to bottom, hsl(var(--background-800)), hsl(var(--background-850)));
+    border: 1px solid rgba(75, 85, 99, 0.3);
+  }
+
+  .everchess-card-hover {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .everchess-card-hover:hover {
+    border-color: rgba(75, 85, 99, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Rainbow gradient for logos */
+.rainbow-gradient {
+  background: conic-gradient(from 0deg, #ff5e00, #ffbb00, #00ff95, #00b8ff, #8c00ff, #ff00c8, #ff0055, #ff5e00);
+  background-size: 100% 100%;
+}
+
+/* Legacy gradient border - kept for other elements that might use it */
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #ff5e00, #ffbb00, #00ff95, #00b8ff, #8c00ff, #ff00c8, #ff0055);
+  z-index: -1;
+  animation: rotate 5s linear infinite;
+}
+
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: black;
+  border-radius: 0.4rem;
+  z-index: -1;
+}
+
+.h-80.w-80.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.h-80.w-80.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(to right, #ff5e00, #ffbb00, #00ff95, #00b8ff, #8c00ff, #ff00c8, #ff0055);
+  background-size: 400% 400%;
+  z-index: 0;
+  animation: rotate 5s linear infinite;
+}
+
+.h-80.w-80.gradient-border > div {
+  position: relative;
+  z-index: 1;
+  border-radius: 0.4rem;
+  margin: 4px;
+  background: black;
+}
+
+/* Make the gradient border more visible for larger elements */
+.gradient-border[style*="border-width"] {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.gradient-border[style*="border-width"]::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(to right, #ff5e00, #ffbb00, #00ff95, #00b8ff, #8c00ff, #ff00c8, #ff0055);
+  background-size: 400% 400%;
+  z-index: 0;
+  animation: rotate 5s linear infinite;
+}
+
+.gradient-border[style*="border-width"]::after {
+  content: none;
+}
+
+.gradient-border[style*="border-width"] > div {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, #ff5e00, #ffbb00, #00ff95, #00b8ff, #8c00ff, #ff00c8, #ff0055);
+  background-size: 200% 200%;
+  animation: shimmer 5s linear infinite;
+  overflow: hidden;
+}
+
+.sticky-gradient-line {
+  position: sticky;
+  top: 64px; /* Height of the header */
+  z-index: 30;
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+.gift-box-3d {
+  perspective: 1000px;
+}
+
+.gift-box {
+  transform-style: preserve-3d;
+  animation: rotate3d 8s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.75rem; /* Slightly smaller on very small screens */
+    letter-spacing: -0.02em; /* Tighten letter spacing on mobile */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    white-space: nowrap;
+  }
+}
+
+.chess-set-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.rainbow-button-wrapper {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.rainbow-button-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg, #ff0000, #ff8000, #ffff00, #00ff00, #00ffff, #0000ff, #8000ff, #ff00ff, #ff0000);
+  z-index: 0;
+  animation: spin-slow 8s linear infinite;
+}
+
+.rainbow-button-wrapper button {
+  position: relative;
+  margin: 2.5px;
+  border-radius: 0.4rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg-background-850 {
+  background-color: hsl(var(--background-850));
+}
+
+/* Tab underline animation */
+@keyframes tabUnderline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.tab-underline {
+  position: relative;
+}
+
+.tab-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--ec-blue);
+  transform-origin: left;
+  animation: tabUnderline 0.2s ease-out forwards;
+}
+
+/* Enhanced social button styles */
+.social-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  box-shadow: 0 0 12px rgba(252, 223, 58, 0.5);
+  transform: scale(1.05);
+}
+
+.social-button:active {
+  transform: scale(0.95);
+}
+
+.social-button > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.social-button > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.social-button:hover > div > div {
+  transform: scale(1.1) !important; /* Override the inline style on hover */
+}
+
+/* Ensure consistent sizing across all social icons */
+.social-icons-grid {
+  align-items: center;
+}
+
+/* Fix for specific icon alignment issues */
+.social-button svg {
+  display: block; /* Ensures no extra space */
+  margin: 0 auto; /* Center horizontally */
+}
+
+/* Pulse animation for hover effect */
+@keyframes subtle-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(252, 223, 58, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(252, 223, 58, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(252, 223, 58, 0);
+  }
+}
+
+.social-button:hover {
+  animation: subtle-pulse 1.5s infinite;
+}
+
+/* Fix for progress bar markers */
+.progress-marker {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--ec-blue);
+  box-shadow: 0 0 8px rgba(0, 182, 255, 0.6);
+  z-index: 10;
+}
+
+/* Queue animation keyframes */
+@keyframes queueAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes queueMinimizeToHeader {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    top: 50%;
+    left: 50%;
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    top: 3.5rem;
+    right: calc(50% - 30px);
+  }
+}
+
+.animate-queue-appear {
+  animation: queueAppear 0.3s ease-out forwards;
+}
+
+.animate-queue-minimize-to-header {
+  animation: queueMinimizeToHeader 1s ease-out forwards;
+}
+
+/* Custom scrollbar for tournament container */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 182, 255, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 182, 255, 0.5);
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 182, 255, 0.3) rgba(30, 41, 59, 0.5);
+}
+
+/* Queue Timer Animation Styles */
+.queue-timer-transitioning {
+  position: fixed;
+  z-index: 60;
+  animation: minimizeToHeader 0.5s forwards;
+}
+
+.header-queue-timer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-queue-timer:hover {
+  transform: scale(1.1);
+}
+
+@keyframes minimizeToHeader {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Ensure the queue timer container has proper positioning */
+.queue-timer-container {
+  position: relative;
+}
+
+/* Add Sora font for the timer */
+@font-face {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sora/v12/xMQOuFFYT72X5wkB_18qmnndmSdSnk-DKQJRBg.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Sora";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sora/v12/xMQOuFFYT72X5wkB_18qmnndmSdSnk-DKQJRBg.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Apply Sora font to the timer text */
+.header-queue-timer span,
+.queue-timer-transitioning span,
+.queue-timer-circle .text-xl {
+  font-family: "Sora", sans-serif;
+}
+
+/* Timer position marker */
+.timer-position-marker {
+  display: inline-block;
+}
+
+canvas {
+  touch-action: none;
+}
+
+/* Custom scrollbar for the game UI */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Prevent text selection on game UI */
+.game-ui {
+  user-select: none;
+}
