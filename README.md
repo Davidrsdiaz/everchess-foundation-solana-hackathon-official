@@ -2,11 +2,11 @@
 
 ## Hello Judges! Thank you for taking the time to view the Everchess repo and README.md file.
 
-For week 1 of the hackathon, I focused on finalizing Research. Week 2-4, I finalized the design.
+Week 1, I focused mostly on finalizing Research. Week 2-4, I finalized the design. Next, the full stack development via React Native + Expo.
 
-### This everchess code repo represents a visual design demo of the Everchess app and ecosystem.
+### Description: This everchess code repo represents a visual design demo of the Everchess app and ecosystem.
 
-Written mostly in React and Next.js, this foundational design will serve as the UI/UX mock-up for me to build the full Everchess app and ecosystem in React Native + Expo among other stacks to fulfill the vision of Everchess being a cross-platform app available for both PCs and phones.
+Written mostly in React/Typescript and Next.js, this foundational design will serve as the UI/UX mock-up for me to build the full Everchess app and ecosystem mostly in React Native + Expo to fulfill the vision of Everchess being a cross-platform app available for both PCs and phones.
 
 ### The Everchess App and Ecosystem will have various Solana-based technologies integrated.
 
