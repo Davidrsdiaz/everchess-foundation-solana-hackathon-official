@@ -1,6 +1,6 @@
 # Everchess App Demo - Solana Hackathon Submission
 
-## Hello Judges! Thank you for taking the time to view the Everchess repo and README.md file.
+## Hello Judges! Thank you for taking the time to view the Everchess repo.
 
 Week 1, I focused mostly on finalizing Research. Week 2-4, I finalized the design. Next, the full stack development via React Native + Expo.
 
