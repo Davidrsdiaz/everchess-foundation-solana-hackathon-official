@@ -1,4 +1,4 @@
-# Everchess App Demo - Hackathon Submission
+# Everchess App Demo - Solana Hackathon Submission
 
 ## Hello Judges! Thank you for taking the time to view the Everchess repo and README.md file.
 
