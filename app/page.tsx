@@ -1060,7 +1060,7 @@ export default function Home() {
               </div>
 
               <div className="w-full max-w-4xl">
-                <div className="relative aspect-video rounded-xl overflow-hidden bg-background-700 border border-gray-700/50 hover:border-white hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-background-700 transition-all duration-300">
+                <div className="relative aspect-video rounded-xl overflow-hidden bg-background-700 border border-gray-700/50 transition-all duration-300">
                   <iframe
                     className="w-full h-full"
                     src="https://www.youtube.com/embed/017bI0IzN_c"
