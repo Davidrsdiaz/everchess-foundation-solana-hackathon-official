@@ -23,7 +23,7 @@ function ComingSoonModal({ isOpen, onClose }) {
               <Image src="/logo.png" alt="Everchess Logo" width={56} height={56} className="relative z-10" />
             </div>
           </div>
-          <h3 className="text-xl font-bold text-white mb-2">Coming Soon!</h3>
+          <h3 className="text-xl font-bold text-white mb-2">{"Available soon on Web · iOS · Android."}</h3>
           <p className="text-muted-foreground mb-4">
             Everchess is currently in development. Early access email list soon to prepare for Everchess Beta launch.              
           </p>
