@@ -25,7 +25,7 @@ function ComingSoonModal({ isOpen, onClose }) {
           </div>
           <h3 className="text-xl font-bold text-white mb-2">Coming Soon!</h3>
           <p className="text-muted-foreground mb-4">
-            Everchess is currently in development. Sign up for our newsletter to be notified when we launch!
+            Everchess is currently in development.       
           </p>
           <Button onClick={onClose} className="bg-red-600 text-white hover:bg-red-700">
             Got it!
