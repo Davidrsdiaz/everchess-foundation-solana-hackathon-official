@@ -1053,7 +1053,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-8">
               <div className="space-y-2 text-center">
-                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">App Demo</h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">{"Everchess Hackathon Presentation"}</h2>
                 <p className="max-w-[900px] text-muted-foreground font-serif md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   See Everchess in action with our interactive demo showcasing the gamified chess experience.
                 </p>
