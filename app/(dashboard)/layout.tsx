@@ -3,7 +3,8 @@
 import type React from "react"
 
 import { Header } from "@/components/header"
-import { Sidebar, SidebarContent, SidebarHeader, SidebarProvider } from "@/components/sidebar/sidebar"
+import { Sidebar, SidebarContent, SidebarHeader } from "@/components/sidebar/sidebar"
+import { SidebarProvider } from "@/components/sidebar/sidebar-provider"
 import { EverchessSidebarNav } from "@/components/sidebar/sidebar-nav"
 import { UserProfile } from "@/components/user-profile"
 import { QueueProvider } from "@/contexts/queue-context"

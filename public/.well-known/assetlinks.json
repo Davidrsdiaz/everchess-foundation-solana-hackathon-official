@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.everchess.app",
+    "sha256_cert_fingerprints":
+    ["EF:04:6B:ED:23:61:B8:01:7A:F4:60:02:2A:C6:17:6E:64:BF:EF:C8:7D:52:2B:27:56:37:F4:3A:83:B0:6E:AE"]
+  }
+}]
