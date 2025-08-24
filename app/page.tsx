@@ -25,7 +25,7 @@ function ComingSoonModal({ isOpen, onClose }) {
           </div>
           <h3 className="text-xl font-bold text-white mb-2">{"Available soon on Web · iOS · Android."}</h3>
           <p className="text-muted-foreground mb-4">
-            Everchess is currently in development. Early access email list soon to prepare for Everchess Beta launch.              
+            Everchess is currently in development. Early access email list soon to prepare for Everchess Beta launch.
           </p>
           <Button onClick={onClose} className="bg-red-600 text-white hover:bg-red-700">
             Got it!
@@ -107,10 +107,10 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="hero-title text-2xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl xl:text-6xl/none whitespace-nowrap">
+                  <h1 className="hero-title text-3xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl xl:text-7xl/none">
                     ANCIENT MADE MODERN
                   </h1>
-                  <h2 className="hero-subtitle text-[1.6rem] font-bold tracking-tighter text-white sm:text-3xl md:text-4xl xl:text-5xl/none whitespace-nowrap">
+                  <h2 className="hero-subtitle text-xl font-bold tracking-tighter text-white sm:text-2xl md:text-3xl xl:text-4xl/none">
                     A Gamified Chess Experience.
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground font-serif md:text-xl">
@@ -118,16 +118,19 @@ export default function Home() {
                     traditional gameplay with modern features. Available soon on Web, iOS, and Android.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-3 min-[400px]:flex-row min-[400px]:gap-4">
                   <Button
                     variant="outline"
-                    className="border-yellow-500 text-white hover:bg-yellow-500/10"
+                    className="border-yellow-500 text-white hover:bg-yellow-500/10 h-12 px-6 bg-transparent"
                     onClick={() => setShowComingSoon(true)}
                   >
                     Get Started
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
-                  <Button className="bg-red-600 text-white hover:bg-red-700" onClick={() => setShowComingSoon(true)}>
+                  <Button
+                    className="bg-red-600 text-white hover:bg-red-700 h-12 px-6"
+                    onClick={() => setShowComingSoon(true)}
+                  >
                     Play Now
                     <Gamepad2 className="ml-2 h-6 w-6" />
                   </Button>
@@ -170,7 +173,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+            <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 lg:grid-cols-3 lg:gap-12">
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-yellow-500/10">
                   <Zap className="h-8 w-8 text-yellow-500" />
@@ -1053,9 +1056,13 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-8">
               <div className="space-y-2 text-center">
-                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">{"Everchess Hackathon Presentation"}</h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
+                  {"Everchess Hackathon Presentation"}
+                </h2>
                 <p className="max-w-[900px] text-muted-foreground font-serif md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {"Diving into my story as the founder, the Everchess origins story,  and the overall vision as we scale."} 
+                  {
+                    "Diving into my story as the founder, the Everchess origins story,  and the overall vision as we scale."
+                  }
                 </p>
               </div>
 
