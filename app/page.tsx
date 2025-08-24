@@ -1061,7 +1061,7 @@ export default function Home() {
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground font-serif md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   {
-                    "Diving into my story as the founder, the Everchess origins story,  and the overall vision as we scale."
+                    "Showcasing my story as the founder, the origins of the Everchess idea and the long-term vision."
                   }
                 </p>
               </div>
